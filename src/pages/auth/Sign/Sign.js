@@ -1,10 +1,13 @@
 import React from "react";
 import {View , Text} from "react-native"
 import { Formik } from "formik";
+import auth from "@react-native-firebase/auth"
+import { showMessage, } from "react-native-flash-message";
 
 import styles from "./Sign.styles"
 import Input from "../../../components/Input";
 import Button from "../../../components/Button";
+import authErrorMessageParser from "../../../utils/authErrorMessageParser";
 
 
 const initialFormValues  = {
@@ -20,8 +23,32 @@ function Sign({navigation}){
         )
     }
 
-    function handleFormSubmit(formValues){
-        console.log(formValues)
+   async function handleFormSubmit(formValues){
+        if(formValues.Password !== formValues.rePassword) {
+            showMessage({
+                message: "Şifreler Aynı Değil!",
+                type: "danger",
+              });
+              return;
+        }
+
+        try {
+           await auth().createUserWithEmailAndPassword(formValues.userMail , formValues.Password)
+           navigation.navigate("LoginPage")
+            showMessage({
+                message: "kullanıcı oluşturuldu",    //switch case yapısı ile düzgün hata mesajı gosterdik
+                type: "success",
+                //şifreler aynı değilse gibi bir yapı için fromik in yup modulu daha mantıklı bu sadece bu örneklik 
+              });
+              
+
+        } catch (error) {
+            showMessage ({
+                message: authErrorMessageParser(error.code) , 
+                type : "danger"
+            })
+          
+        }
     }
  
     return(
@@ -34,15 +61,18 @@ function Sign({navigation}){
                 <Input 
                 onChangeText = {handleChange("userMail")} 
                 value={values.userMail} 
-                placeholder="E-postanızı Giriniz"/>
+                placeholder="E-postanızı Giriniz"
+                />
                 <Input 
                 onChangeText = {handleChange("Password")}
                 value={values.Password} 
-                placeholder="Şifrenizi giriniz"/>
+                placeholder="Şifrenizi giriniz"
+                secureTextEntry/>
                   <Input 
                 onChangeText = {handleChange("rePassword")}
                 value={values.rePassword} 
-                placeholder="Şifrenizi Tekrar giriniz"/>
+                placeholder="Şifrenizi Tekrar giriniz"
+                secureTextEntry/>
 
                 <Button  title="Giriş Yap" onPress={handleSubmit}/>
             </>

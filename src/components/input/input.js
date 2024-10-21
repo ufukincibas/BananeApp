@@ -16,6 +16,7 @@ const Input = ({
       {label && <Text style={styles.label}>{label}</Text>} 
       {/* Giriş alanı */}
       <TextInput
+      autoCapitalize="none"
         style={styles.input}
         placeholder={placeholder}
         value={value}

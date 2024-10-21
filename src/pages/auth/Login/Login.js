@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import {View , Text} from "react-native"
 import { Formik } from "formik";
 import auth from "@react-native-firebase/auth"
+import { showMessage, } from "react-native-flash-message";
 
 import styles from "./Login.styles"
 import Input from "../../../components/Input";
 import Button from "../../../components/Button";
+import authErrorMessageParser from "../../../utils/authErrorMessageParser";
 
 const initialFormValues  = {
     userMail : "" ,
@@ -26,7 +28,11 @@ function Login({navigation}){
 
                 setloading(false);  
             } catch (error) {
-                console.log(error)
+                console.log(error);
+                showMessage({
+                    message: authErrorMessageParser(error.code),    //switch case yapısı ile düzgün hata mesajı gosterdik
+                    type: "danger",
+                  });
                 setloading(false);
             }
       
@@ -45,7 +51,8 @@ function Login({navigation}){
                 <Input 
                 onChangeText = {handleChange("Password")}
                 value={values.Password} 
-                placeholder="Şifrenizi giriniz"/>
+                placeholder="Şifrenizi giriniz"
+                secureTextEntry/>
 
                 <Button  title="Giriş Yap" onPress={handleSubmit} loading={loading}/>
             </>
