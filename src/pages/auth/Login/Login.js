@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import {View , Text} from "react-native"
 import { Formik } from "formik";
+import auth from "@react-native-firebase/auth"
 
 import styles from "./Login.styles"
 import Input from "../../../components/Input";
@@ -12,12 +13,23 @@ const initialFormValues  = {
 }
 
 function Login({navigation}){
+    const [loading , setloading] = useState(false);
     function handleSignUp(){
         return(
             navigation.navigate("SignPage")
         )
     }
-        function handleFormSubmit(formValues){
+        async function handleFormSubmit(formValues){
+            try {
+                setloading(true);
+                await auth().signInWithEmailAndPassword(formValues.userMail , formValues.Password)
+
+                setloading(false);  
+            } catch (error) {
+                console.log(error)
+                setloading(false);
+            }
+      
           console.log(formValues)
         }
     return(
@@ -35,7 +47,7 @@ function Login({navigation}){
                 value={values.Password} 
                 placeholder="Şifrenizi giriniz"/>
 
-                <Button  title="Giriş Yap" onPress={handleSubmit}/>
+                <Button  title="Giriş Yap" onPress={handleSubmit} loading={loading}/>
             </>
             )}
          

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "573341112142",
+    "project_id": "banane-cee1f",
+    "storage_bucket": "banane-cee1f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573341112142:android:1a8589922b13a081cab01f",
+        "android_client_info": {
+          "package_name": "com.bananeapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWICfsNlFV7MsTPchr0IDx_ZeSZsAXGBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
