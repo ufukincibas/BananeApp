@@ -9,6 +9,8 @@ import Input from "../../../components/Input";
 import Button from "../../../components/Button";
 import authErrorMessageParser from "../../../utils/authErrorMessageParser";
 
+import Icon from 'react-native-vector-icons/FontAwesome'
+
 const initialFormValues  = {
     userMail : "" ,
     Password : ""
@@ -41,6 +43,7 @@ function Login({navigation}){
     return(
         <View>
             <Text style={styles.header}>Bana Ne?</Text>
+           
           <Formik initialValues={initialFormValues} onSubmit={handleFormSubmit}> 
           { ({values , handleChange , handleSubmit}) => (
                <>
