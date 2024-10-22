@@ -37,13 +37,13 @@ export default {
         ...base_style , 
         button: {
             ...base_style.button ,
-          backgroundColor: "white", // Butonun arka plan rengi (yeşil tonları).
+          backgroundColor: "white", 
           borderColor: "#4CAF50",
           borderWidth: 1 ,
         },
         buttonText: {
             ...base_style.buttonText,
-          color: "#4CAF50", // Buton metni beyaz.
+          color: "#4CAF50", // (yeşil tonları).
         },
 
       })
