@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./pages/auth/Login/Login"
 import Sign from "./pages/auth/Sign/Sign";
 import FlashMessage from "react-native-flash-message";
+import Messages from "./pages/Messages/Messages";
 
 
 const Stack = createNativeStackNavigator()
@@ -12,7 +13,8 @@ const Stack = createNativeStackNavigator()
 function App(){
   const AuthStack = () => {
     return (
-      <Stack.Navigator screenOptions={{headerShown:false}}>
+      <Stack.Navigator>
+       <Stack.Screen name="MessagesPage" component={Messages}/>
       <Stack.Screen name="LoginPage" component={Login}/>
       <Stack.Screen name="SignPage" component={Sign}/>
     </Stack.Navigator>
@@ -23,6 +25,7 @@ function App(){
     <Stack.Navigator screenOptions={
       {headerShown:false}
     }>
+     
       <Stack.Screen name="AuthStack" component={AuthStack}/>
  
     </Stack.Navigator>

@@ -74,12 +74,12 @@ function Sign({navigation}){
                 placeholder="Şifrenizi Tekrar giriniz"
                 secureTextEntry/>
 
-                <Button  title="Giriş Yap" onPress={handleSubmit}/>
+                <Button  title="Kayıt ol" onPress={handleSubmit}/>
             </>
             )}
          
          </Formik>
-            <Button title="Kayıt Ol" />
+            <Button title="Giriş Yap" />
             <Button title="Geri" theme="Secondary" onPress={handleLogin}/>
         </View>
     )

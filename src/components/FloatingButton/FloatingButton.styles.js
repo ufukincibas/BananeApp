@@ -11,5 +11,9 @@ export default StyleSheet.create({
          alignItems : "center" ,
          justifyContent : "center" ,
          backgroundColor : "#4CAF50",
+    },
+    icon: {
+        fontSize: 30,
+        color: 'white'
     }
 })

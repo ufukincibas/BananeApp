@@ -1684,20 +1684,25 @@
     prompts "^2.4.2"
     semver "^7.5.2"
 
-"@react-native-firebase/app@^21.0.0", "@react-native-firebase/app@21.0.0":
-  version "21.0.0"
-  resolved "https://registry.npmjs.org/@react-native-firebase/app/-/app-21.0.0.tgz"
-  integrity sha512-CR7KMAWb5uKYyjvWlFdMYrchNF+8XXOk+hnDYcIe+jsHTu+L2tCBzmgE9U0RMUEOdJBIPQotAdnenVdipEbbUg==
+"@react-native-firebase/app@^21.2.0", "@react-native-firebase/app@21.2.0":
+  version "21.2.0"
+  resolved "https://registry.npmjs.org/@react-native-firebase/app/-/app-21.2.0.tgz"
+  integrity sha512-3lkJNWHU5Iod6n1k9Q6VmCbI84D5M/pVSwaRtxc3sf/c2eU7Bdrhv6ql4Sv3+2TqdQ4FMD9wqTBrFkJHchhfTw==
   dependencies:
     firebase "10.13.2"
     superstruct "^0.6.2"
 
-"@react-native-firebase/auth@^21.0.0":
-  version "21.0.0"
-  resolved "https://registry.npmjs.org/@react-native-firebase/auth/-/auth-21.0.0.tgz"
-  integrity sha512-aCWg60DmbeZio6m8/tN2wBU3uMmYUzlAqP5DMlA3r8FrKTmmtVTrnDjY1PAyC+0yRTAOH2fbKW6HN5kRKndGLQ==
+"@react-native-firebase/auth@^21.2.0":
+  version "21.2.0"
+  resolved "https://registry.npmjs.org/@react-native-firebase/auth/-/auth-21.2.0.tgz"
+  integrity sha512-dC9EwXZTk+DPL0OGv9JsZnrsiG+V0xfPozYigwlvdWtevVd2bCbHDbZd4TFDuV+AtM1AIxWKAflUw0kLIcBDew==
   dependencies:
     plist "^3.1.0"
+
+"@react-native-firebase/database@^21.2.0":
+  version "21.2.0"
+  resolved "https://registry.npmjs.org/@react-native-firebase/database/-/database-21.2.0.tgz"
+  integrity sha512-cyu1AVXN6mqOBeL43Q6AYXFV4nYiuCTbLr82FeeFfwiYHg5NhxmPU3CDq8v7mh/P3DY5MNyYECeUxDC+bXRCIQ==
 
 "@react-native/assets-registry@0.75.4":
   version "0.75.4"
@@ -2688,6 +2693,11 @@ data-view-byte-offset@^1.0.0:
     call-bind "^1.0.6"
     es-errors "^1.3.0"
     is-data-view "^1.0.1"
+
+date-fns@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.npmjs.org/date-fns/-/date-fns-4.1.0.tgz"
+  integrity sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==
 
 dayjs@^1.8.15:
   version "1.11.13"

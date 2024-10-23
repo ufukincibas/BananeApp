@@ -6,6 +6,7 @@ import Button from "../../Button";
 import Modal from "react-native-modal";
 
 function ContentInputModal({visible ,onClose, onSend}) {
+    
     const [text , setText] = useState(null);
 
 function handleSend(){
