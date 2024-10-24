@@ -9,7 +9,7 @@ export default StyleSheet.create({
         borderTopLeftRadius: 10 ,
         borderTopRightRadius : 10 ,
         height : deviceSize.height / 3 ,
-        width : deviceSize.width / 3 , 
+       
     } , 
     input_container:{
         flex:1
