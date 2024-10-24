@@ -21,10 +21,8 @@ function Messages(){
         .on('value', snapshot => {
             const contentData = snapshot.val();
 
-            if (!contentData){
-                return; //contentdata null ise islem yapma
-            }
-           const parsedData = ParseContentData(contentData);
+           
+           const parsedData = ParseContentData(contentData || {});
            setContentList(parsedData)
           }); //realtime changes
     } , [])
@@ -48,11 +46,18 @@ function sendContent(content){
        text : content ,
        username : userMail.split("@")[0]  ,     //@ ten oncesini gonder
        date : (new Date()).toISOString(),
+       dislike : 0
     }
     database().ref("Messages/").push(contentObje) //messages ın altına git push islemi gerceklestir database e yolladı
 }
 
-const renderContent = ({item}) => <MessageCard message={item} />
+function handleBanane (item) {
+    database()
+        .ref(`Messages/${item.id}/`)
+        .update({dislike: item.dislike + 1});
+}
+
+const renderContent = ({item}) => (  <MessageCard message={item} onBanane={() => handleBanane(item)} />)
 
     return(
 <View style={styles.container}>
